@@ -153,6 +153,12 @@
 			<name>Selenium WebDriver Handler</name>
 			<url>https://github.com/Emergya/qa-selenium-handler/mvn-repo</url>
 		</repository>
+		
+		<repository>
+			<id>com.springsource.repository.bundles.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+			<url></url>http://repository.springsource.com/maven/bundles/external</url>
+		</repository>
 
 	</repositories>
 
