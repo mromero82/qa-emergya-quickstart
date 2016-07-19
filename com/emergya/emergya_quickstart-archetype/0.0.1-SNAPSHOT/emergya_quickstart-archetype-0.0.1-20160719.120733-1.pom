@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.emergya</groupId>
+	<artifactId>emergya_quickstart-archetype</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>maven-archetype</packaging>
+
+	<name>emergya_quickstart-archetype</name>
+
+
+	<url>https://github.com/Emergya/qa-emergya-quickstart</url>
+
+	<properties>
+		<!-- Versions section -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<selenium.version>2.53.0</selenium.version>
+		<java.version>1.7</java.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<testng.version>6.8.8</testng.version>
+		<monte.repack.version>1.0.1</monte.repack.version>
+		<jdom.version>1.1</jdom.version>
+		<jaxen.version>1.1.6</jaxen.version>
+		<saxpath.version>1.0-FCS</saxpath.version>
+		<jaxen.jdom.version>1.0-FCS</jaxen.jdom.version>
+		<commons.version>3.0</commons.version>
+		<log4j.version>1.2.17</log4j.version>
+		<selenium-handler.version>0.0.3</selenium-handler.version>
+
+		<!-- Parameters for test executions -->
+		<browser>Firefox</browser>
+		<local.OS>Ubuntu</local.OS>
+		<ide.Enabled>false</ide.Enabled>
+		<video.Recording.Path>target/surefire-reports/testCasesVideos</video.Recording.Path>
+		<activate.Video.Recording>true</activate.Video.Recording>
+		<save.Video.For.Passed>false</save.Video.For.Passed>
+		<webdriver.chrome.driver>files/software/chromedriver</webdriver.chrome.driver>
+		<webdriver.ie.driver>files/software/IEDriverServer.exe</webdriver.ie.driver>
+
+		<!-- Parameters for selenium -->
+		<environment.url>http://www.google.es</environment.url>
+		<env.context></env.context>
+	</properties>
+	
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+	
+	<developers>
+		<developer>
+			<name>Oscar C. Calle</name>
+			<email>ocascal@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Jose A. Sanchez</name>
+			<email>jasanchez@emergya.com</email>
+		</developer>
+		<developer>
+			<name>Alejandro Gomez</name>
+			<email>agommor@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Fran Araque</name>
+			<email>fmaraque@emergya.com</email>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+
+	<!-- Build phase -->
+	<build>
+		<!-- Filtering resources -->
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.4</version>
+			</extension>
+		</extensions>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<!-- Plugins section -->
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.11</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<repositoryName>qa-emergya-quickstart</repositoryName>      <!-- github repo name -->
+					<repositoryOwner>Emergya</repositoryOwner>    <!-- github username -->
+					<repositoryUser>ocastano</repositoryUser>
+					<server>github</server>
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
+						'deploy' phase -->
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
