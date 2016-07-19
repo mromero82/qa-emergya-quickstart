@@ -144,7 +144,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		
+
 		<!-- GtHub Selenium WebDriver Handler Repository -->
 		<repository>
 			<id>selenium-handler</id>
