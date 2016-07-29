@@ -26,7 +26,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<selenium-handler.version>0.0.3</selenium-handler.version>
 		<!-- Default test suite -->
-		<test.suite>src/test/resources/suites/emergyaAcceptanceTest.xml</test.suite>
+		<test.suite>src/main/resources/suites/emergyaAcceptanceTest.xml</test.suite>
 
 		<!-- Parameters for test executions -->
 		<browser>Firefox</browser>
@@ -124,14 +124,14 @@
 		<profile>
 			<id>Emergya-Acceptance</id>
 			<properties>
-				<test.suite>src/test/resources/suites/emergyaAcceptanceTest.xml</test.suite>
+				<test.suite>src/main/resources/suites/emergyaAcceptanceTest.xml</test.suite>
 			</properties>
 		</profile>
 
 		<profile>
 			<id>Emergya-Regression</id>
 			<properties>
-				<test.suite>src/test/resources/suites/emergyaRegressionTest.xml</test.suite>
+				<test.suite>src/main/resources/suites/emergyaRegressionTest.xml</test.suite>
 			</properties>
 		</profile>
 	</profiles>
