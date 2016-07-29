@@ -151,7 +151,7 @@
 		<repository>
 			<id>selenium-handler</id>
 			<name>Selenium WebDriver Handler</name>
-			<url>https://github.com/Emergya/qa-selenium-handler/mvn-repo</url>
+			<url>https://raw.github.com/Emergya/qa-selenium-handler/mvn-repo</url>
 		</repository>
 		
 		<repository>
