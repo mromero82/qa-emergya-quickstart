@@ -6,7 +6,6 @@ The aim of this project is to provide a maven archetype for selenium projets usi
 2. [Oracle Java 8 installation](/documentation/prerequisites/java8Installation.md)
 
 ##Adding dependencies
---
  1. Add the repository:
 
    ```xml
