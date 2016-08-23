@@ -3,3 +3,4 @@ The aim of this project is to provide a maven archetype for selenium projets usi
 
 ## Prerequisites
 1. [Maven 3 configuration](/documentation/prerequisites/maven3Installation.md)
+2. [Oracle Java 8 installation](/documentation/prerequisites/java8Installation.md)
