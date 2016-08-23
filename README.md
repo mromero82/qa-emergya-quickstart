@@ -42,11 +42,11 @@ _pom.xml_ is located in the root path of the project. We have defined repositori
 ###Parameters for test executions
 Important parameters to execute tests:
 
-1._browser_: Browser used to launch tests. Allowed values: _Firefox_, _Chrome_ or _IE_.
-2._local.OS_: Local OS used. Allowed values: _Windows_ (only with Chrome or IE) or empty.
-3._ide.Enabled_:
-4._video.Recording.Path_:
-5._activate.Video.Recording_:
-6._save.Video.For.Passed_:
-7._webdriver.chrome.driver_:
-8._webdriver.ie.driver_:
+1. _browser_: Browser used to launch tests. Allowed values: _Firefox_, _Chrome_ or _IE_.
+2. _local.OS_: Local OS used. Allowed values: _Windows_ (only with Chrome or IE) or empty.
+3. _ide.Enabled_:
+4. _video.Recording.Path_:
+5. _activate.Video.Recording_:
+6. _save.Video.For.Passed_:
+7. _webdriver.chrome.driver_:
+8. _webdriver.ie.driver_:
