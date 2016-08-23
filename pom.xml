@@ -10,6 +10,16 @@
 	<url>https://github.com/Emergya/qa-emergya-quickstart</url>
 
 	<properties>
+		<!-- Parameters for test executions -->
+		<browser>Firefox</browser>
+		<local.OS>Ubuntu</local.OS>
+		<ide.Enabled>false</ide.Enabled>
+		<video.Recording.Path>target/surefire-reports/testCasesVideos</video.Recording.Path>
+		<activate.Video.Recording>true</activate.Video.Recording>
+		<save.Video.For.Passed>false</save.Video.For.Passed>
+		<webdriver.chrome.driver>files/software/chromedriver</webdriver.chrome.driver>
+		<webdriver.ie.driver>files/software/IEDriverServer.exe</webdriver.ie.driver>
+		
 		<!-- Versions section -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -24,21 +34,12 @@
 		<jaxen.jdom.version>1.0-FCS</jaxen.jdom.version>
 		<commons.version>3.0</commons.version>
 		<log4j.version>1.2.17</log4j.version>
-		<selenium-handler.version>0.0.3</selenium-handler.version>
+		<selenium-handler.version>0.0.4</selenium-handler.version>
+		
 		<!-- Default test suite -->
 		<test.suite>src/main/resources/suites/emergyaAcceptanceTest.xml</test.suite>
 
-		<!-- Parameters for test executions -->
-		<browser>Firefox</browser>
-		<local.OS>Ubuntu</local.OS>
-		<ide.Enabled>false</ide.Enabled>
-		<video.Recording.Path>target/surefire-reports/testCasesVideos</video.Recording.Path>
-		<activate.Video.Recording>true</activate.Video.Recording>
-		<save.Video.For.Passed>false</save.Video.For.Passed>
-		<webdriver.chrome.driver>files/software/chromedriver</webdriver.chrome.driver>
-		<webdriver.ie.driver>files/software/IEDriverServer.exe</webdriver.ie.driver>
-
-		<!-- Parameters for selenium -->
+		<!-- Default parameters for selenium -->
 		<environment.url>http://www.google.es</environment.url>
 		<env.context></env.context>
 	</properties>
