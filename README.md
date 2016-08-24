@@ -68,5 +68,5 @@ _GoogleMainPage.java_ --> _googlemainpage.properties_
 1. pageObject: Here we have every PageObjects. All PageObjects extends BasePageObject, it has important functions.
 2. testSets: Here we store the tests classes. _@before_ and _@after_ methods are defined here. All tests classes extends BasicTestSet.
 3. utils: 
-..* BasicTestSet - Contains PageObjects variable references. Extends DefaultTestSet.
-..* Factory - Generic class to do pre-steps and post-steps method. Extends DefaultTestSet.
+ * BasicTestSet - Contains PageObjects variable references. Extends DefaultTestSet.
+ * Factory - Generic class to do pre-steps and post-steps method. Extends DefaultTestSet.
