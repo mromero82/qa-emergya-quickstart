@@ -1,20 +1,14 @@
 package com.emergya.utils;
 
-import com.emergya.selenium.testSet.DefaultTestSet;
 import com.emergya.pageObjects.EmergyaMainPage;
 import com.emergya.pageObjects.GoogleMainPage;
+import com.emergya.selenium.testSet.DefaultTestSet;
 
 /**
- * TestNG after and before methods
+ * PageObjects variable references
  * @author Jose Antonio Sanchez <jasanchez@emergya.com>
  */
-public abstract class BasicTestSet extends DefaultTestSet{
-
-
+public abstract class BasicTestSet extends DefaultTestSet {
     protected GoogleMainPage googleMainPage;
     protected EmergyaMainPage emergyaMainPage;
-    
-    
-    
-    
 }
