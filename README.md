@@ -59,7 +59,7 @@ Important parameters to execute tests:
 5. _test.properties_: In this file we store some common tests properties.
 
 ### Items selectors
-As we explained [here] (/README.md#srcmainresources-folder), the selectors are _.properties_ files used to save the way to locate elements of the page (ID's, Xpath, etc). To make it work the _.properties_ file should have exactly the same name of the PageObject refered with the next changes: the _.properties_ file name should go in lowercase and without the suffix _Page_.
+As we explained [here] (/README.md#srcmainresources-folder), the selectors are _.properties_ files used to save the way to locate elements of the page (ID's, Xpath, etc). To make it work the _.properties_ file should have exactly the same name of the PageObject refered with the next changes: the _.properties_ file name should go in lowercase and with the suffix _Page_.
 > Example:  
 _GoogleMainPage.java_ --> _googlemainpage.properties_
 >
