@@ -10,13 +10,19 @@ import com.emergya.selenium.pageObject.BasePageObject;
  * EmergyaMainPage: This PO contain the methods to interact with the emergya main page
  * @author Ivan Bermudez <ibermudez@emergya.com>
  * @author Jose Antonio Sanchez <jasanchez@emergya.com>
+ * @author Ivan Gomez <igomez@emergya.com>
  */
 public class EmergyaMainPage extends BasePageObject {
 
     /**
      * Logger class initialization.
      */
-    Logger log = Logger.getLogger(GoogleMainPage.class);
+    static Logger log = Logger.getLogger(GoogleMainPage.class);
+
+    /**
+     * Items keys selectors.
+     */
+    private static final String IMG_LOGO_EMERGYA = "imgLogoEmergya";
 
     /**
      * Constructor method
@@ -33,13 +39,11 @@ public class EmergyaMainPage extends BasePageObject {
      */
     @Override
     public boolean isReady() {
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
-                + " - Start isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
 
-        boolean status = this.isElementVisibleByXPath("imgLogoEmergya");
+        boolean status = this.isElementVisibleByXPath(IMG_LOGO_EMERGYA);
 
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
-                + " - End isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
 
         return status;
     }

@@ -20,10 +20,11 @@ import com.emergya.utils.BasicTestSet;
  * A test class contain the tests of a specific page in the application
  * @author Jose Antonio Sanchez <jasanchez@emergya.com>
  * @author Ivan Bermudez <ibermudez@emergya.com>
+ * @author Ivan Gomez <igomez@emergya.com>
  */
 public class GoogleTestSet extends BasicTestSet {
 
-    Logger log = Logger.getLogger(GoogleTestSet.class);
+    static Logger log = Logger.getLogger(GoogleTestSet.class);
 
     public GoogleTestSet() {
         super();

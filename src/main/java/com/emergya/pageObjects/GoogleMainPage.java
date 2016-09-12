@@ -11,13 +11,21 @@ import com.emergya.selenium.pageObject.BasePageObject;
  * GoogleMainPage: This PO contain the methods to interact with the google main page
  * @author Jose Antonio Sanchez <jasanchez@emergya.com>
  * @author Ivan Bermudez <ibermudez@emergya.com>
+ * @author Ivan Gomez <igomez@emergya.com>
  */
 public class GoogleMainPage extends BasePageObject {
 
     /**
      * Logger class initialization.
      */
-    Logger log = Logger.getLogger(GoogleMainPage.class);
+    static Logger log = Logger.getLogger(GoogleMainPage.class);
+
+    /**
+     * Items keys selectors.
+     */
+    private static final String SEARCH_FIELD = "searchField";
+    private static final String IMG_LOGO = "imgLogo";
+    private static final String SMALL_SEARCH_BUTTON = "smallSearchButton";
 
     /**
      * Constructor method
@@ -34,13 +42,11 @@ public class GoogleMainPage extends BasePageObject {
      */
     @Override
     public boolean isReady() {
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
-                + " - Start isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
 
-        boolean status = this.isElementVisibleById("imgLogo");
+        boolean status = this.isElementVisibleById(IMG_LOGO);
 
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
-                + " - End isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
 
         return status;
     }
@@ -51,24 +57,19 @@ public class GoogleMainPage extends BasePageObject {
      * @param stringSearch
      */
     public void doSearch(String stringSearch) {
-        log.info("[log-" + this.getClass().getSimpleName()
-                + "]- Start doSearch -[" + this.getClass().getSimpleName()
+        log.info("[log-" + this.getClass().getSimpleName() + "]- Start doSearch -[" + this.getClass().getSimpleName()
                 + "- method]");
 
-        String keyField = "searchField";
-        String keySmallButtonSearch = "smallSearchButton";
+        if (this.isElementVisibleById(SEARCH_FIELD)) {
+            this.getElementById(SEARCH_FIELD).sendKeys(stringSearch);
 
-        if (this.isElementVisibleById(keyField)) {
-            this.getElementById(keyField).sendKeys(stringSearch);
-
-            if (this.isElementVisibleById(keySmallButtonSearch)) {
-                this.getElementById(keySmallButtonSearch).click();
+            if (this.isElementVisibleById(SMALL_SEARCH_BUTTON)) {
+                this.getElementById(SMALL_SEARCH_BUTTON).click();
             }
         }
 
-        log.info(
-                "[log-" + this.getClass().getSimpleName() + "]- End doSearch -["
-                        + this.getClass().getSimpleName() + "- method]");
+        log.info("[log-" + this.getClass().getSimpleName() + "]- End doSearch -[" + this.getClass().getSimpleName()
+                + "- method]");
     }
 
     /**
@@ -76,14 +77,12 @@ public class GoogleMainPage extends BasePageObject {
      * @return
      */
     public EmergyaMainPage clickOnEmergyaPage() {
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start clickOnPage method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
         String xpathLink = "//h3[@class='r']/a[contains(@href,'emergya.es')]";
 
         driver.clickIfExists(By.xpath(xpathLink));
 
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- End clickOnPage method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
         return new EmergyaMainPage(driver);
     }
 }
