@@ -22,10 +22,10 @@
 		<!-- Versions section -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<selenium.version>2.53.0</selenium.version>
-		<java.version>1.7</java.version>
-		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
-		<testng.version>6.8.8</testng.version>
+		<selenium.version>2.53.1</selenium.version>
+		<java.version>1.8</java.version>
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+		<testng.version>6.9.10</testng.version>
 		<monte.repack.version>1.0.1</monte.repack.version>
 		<jdom.version>1.1</jdom.version>
 		<jaxen.version>1.1.6</jaxen.version>
@@ -34,8 +34,8 @@
 		<commons.version>3.0</commons.version>
 		<log4j.version>1.2.17</log4j.version>
 		<selenium-handler.version>0.0.7</selenium-handler.version>
-		<allure.version>1.4.23</allure.version>
-		<aspectj.version>1.8.5</aspectj.version>
+		<allure.version>1.5.0.RC2</allure.version>
+		<aspectj.version>1.8.9</aspectj.version>
 
 		<!-- Default test suite -->
 		<test.suite>src/main/resources/suites/emergyaAcceptanceTest.xml</test.suite>
@@ -264,21 +264,21 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.16</version>
+				<version>2.19.1</version>
 				<configuration>
 					<suiteXmlFiles>
 						<suiteXmlFile>${test.suite}</suiteXmlFile>
 					</suiteXmlFiles>
-					 <argLine>
-			            -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+					<argLine>
+						-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
 					</argLine>
 				</configuration>
 				<dependencies>
-				<dependency>
-			            <groupId>org.aspectj</groupId>
-			            <artifactId>aspectjweaver</artifactId>
-			            <version>${aspectj.version}</version>
-        			</dependency>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
 				</dependencies>
 			</plugin>
 
@@ -320,17 +320,17 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 	<reporting>
-	    <excludeDefaults>true</excludeDefaults>
-	    <plugins>
-	        <plugin>
-	            <groupId>ru.yandex.qatools.allure</groupId>
-	            <artifactId>allure-maven-plugin</artifactId>
-	            <version>2.5</version>
-	        </plugin>
-	    </plugins>
-</reporting>
+		<excludeDefaults>true</excludeDefaults>
+		<plugins>
+			<plugin>
+				<groupId>ru.yandex.qatools.allure</groupId>
+				<artifactId>allure-maven-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
