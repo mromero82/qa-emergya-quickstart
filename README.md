@@ -23,7 +23,7 @@ The aim of this project is to provide a maven archetype for selenium projets usi
         <dependency>
                 <groupId>com.emergya</groupId>
                 <artifactId>selenium-handler</artifactId>
-                <version>0.0.8</version>
+                <version>0.1.0</version>
         </dependency>
     ```
 
