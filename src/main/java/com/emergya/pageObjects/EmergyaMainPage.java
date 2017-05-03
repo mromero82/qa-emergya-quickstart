@@ -30,7 +30,6 @@ public class EmergyaMainPage extends BasePageObject {
      */
     public EmergyaMainPage(EmergyaWebDriver driver) {
         super(driver);
-        this.isReady();
     }
 
     /**

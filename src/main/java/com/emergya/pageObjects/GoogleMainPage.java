@@ -33,7 +33,6 @@ public class GoogleMainPage extends BasePageObject {
      */
     public GoogleMainPage(EmergyaWebDriver driver) {
         super(driver);
-        this.isReady();
     }
 
     /**

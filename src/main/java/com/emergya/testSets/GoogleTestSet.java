@@ -67,7 +67,7 @@ public class GoogleTestSet extends BasicTestSet {
         log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
-        googleMainPage = new GoogleMainPage(driver);
+        isReady(googleMainPage = new GoogleMainPage(driver));
 
         // Steps to build the stage (Pre steps)
 
@@ -123,7 +123,7 @@ public class GoogleTestSet extends BasicTestSet {
         log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
-        googleMainPage = new GoogleMainPage(driver);
+        isReady(googleMainPage = new GoogleMainPage(driver));
 
         // Steps to build the stage (Pre steps)
 
