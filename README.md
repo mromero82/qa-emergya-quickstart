@@ -5,27 +5,25 @@ The aim of this project is to provide a maven archetype for selenium projets usi
 1. [Maven 3 configuration](/documentation/prerequisites/maven3Installation.md)
 2. [Oracle Java 8 installation](/documentation/prerequisites/java8Installation.md)
 
-##Adding dependencies
+## Adding dependencies
  1. Add the repository:
 
-   ```xml
+```
         <!-- GtHub Selenium WebDriver Handler Repository -->
         <repository>
                 <id>selenium-handler</id>
                 <name>Selenium WebDriver Handler</name>
                 <url>https://raw.github.com/Emergya/qa-selenium-handler/mvn-repo</url>
         </repository>
-    ```
+```
  2. Adding the following maven dependency in your ```pom.xml``` file:
-
-
-    ```xml
+```
         <dependency>
                 <groupId>com.emergya</groupId>
                 <artifactId>selenium-handler</artifactId>
                 <version>0.1.7</version>
         </dependency>
-    ```
+```
 
 ## How to use the archetype
 Firstly, you have to clone the repository to get the project structure.
@@ -39,7 +37,7 @@ _Do not remove the default developers who made this project real._
 ## Configuring pom.xml parameters
 _pom.xml_ is located in the root path of the project. We have defined repositories for SeleniumHandler, versions of plugins and technologies, parameters for test executions, dependencies, profiles, and all the config for the Build phase. 
 
-###Parameters for test executions
+### Parameters for test executions
 Important parameters to execute tests:
 
 1. _browser_: Browser used to launch tests. Allowed values: _Firefox_, _Chrome_ or _IE_.
