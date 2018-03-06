@@ -24,8 +24,10 @@ public class GoogleMainPage extends BasePageObject {
      * Items keys selectors.
      */
     private static final String SEARCH_FIELD = "searchField";
+    private static final String SEARCH_BUTTON = "searchButton";
+    private static final String LUCK_BUTTON = "luckButton";
     private static final String IMG_LOGO = "imgLogo";
-    private static final String SMALL_SEARCH_BUTTON = "smallSearchButton";
+    private static final String NEW_SEARCH_BUTTON = "newSearchButton";
 
     /**
      * Constructor method
@@ -41,11 +43,13 @@ public class GoogleMainPage extends BasePageObject {
      */
     @Override
     public boolean isReady() {
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+                + " - Start isReady method");
 
         boolean status = this.isElementVisibleById(IMG_LOGO);
 
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+                + " - End isReady method");
 
         return status;
     }
@@ -56,19 +60,21 @@ public class GoogleMainPage extends BasePageObject {
      * @param stringSearch
      */
     public void doSearch(String stringSearch) {
-        log.info("[log-" + this.getClass().getSimpleName() + "]- Start doSearch -[" + this.getClass().getSimpleName()
+        log.info("[log-" + this.getClass().getSimpleName()
+                + "]- Start doSearch -[" + this.getClass().getSimpleName()
                 + "- method]");
 
         if (this.isElementVisibleById(SEARCH_FIELD)) {
             this.getElementById(SEARCH_FIELD).sendKeys(stringSearch);
 
-            if (this.isElementVisibleById(SMALL_SEARCH_BUTTON)) {
-                this.getElementById(SMALL_SEARCH_BUTTON).click();
+            if (this.isElementVisibleByXPath(NEW_SEARCH_BUTTON)) {
+                this.getElementByXPath(NEW_SEARCH_BUTTON).click();
             }
         }
 
-        log.info("[log-" + this.getClass().getSimpleName() + "]- End doSearch -[" + this.getClass().getSimpleName()
-                + "- method]");
+        log.info(
+                "[log-" + this.getClass().getSimpleName() + "]- End doSearch -["
+                        + this.getClass().getSimpleName() + "- method]");
     }
 
     /**
@@ -76,12 +82,66 @@ public class GoogleMainPage extends BasePageObject {
      * @return
      */
     public EmergyaMainPage clickOnEmergyaPage() {
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnPage method");
         String xpathLink = "//h3[@class='r']/a[contains(@href,'emergya.es')]";
 
         driver.clickIfExists(By.xpath(xpathLink));
 
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End clickOnPage method");
         return new EmergyaMainPage(driver);
+    }
+
+    /**
+     * Check if google logo is displayed
+     * @return
+     */
+    public boolean isLogoDisplayed() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start isLogoDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isLogoDisplayed method");
+
+        return this.isElementVisibleById(IMG_LOGO);
+    }
+
+    /**
+     * Check if google search button is displayed
+     * @return
+     */
+    public boolean isSearchButtonDisplayed() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start isSearchButtonDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isSearchButtonDisplayed method");
+
+        return this.isElementVisibleByName(SEARCH_BUTTON);
+    }
+
+    /**
+     * Check if google luck button is displayed
+     * @return
+     */
+    public boolean isLuckButtonDisplayed() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start isLuckButtonDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isLuckButtonDisplayed method");
+
+        return this.isElementVisibleByName(LUCK_BUTTON);
+    }
+
+    /**
+     * Check if google search field is displayed
+     * @return
+     */
+    public boolean isSearchFieldDisplayed() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start isSearchFieldDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isSearchFieldDisplayed method");
+
+        return this.isElementVisibleById(SEARCH_FIELD);
     }
 }
