@@ -64,7 +64,8 @@ public class GoogleTestSet extends BasicTestSet {
      */
     @Test(description = "googleMainPageSearch")
     public void googleMainPageSearch(Method method) {
-        log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
         isReady(googleMainPage = new GoogleMainPage(driver));
@@ -83,7 +84,7 @@ public class GoogleTestSet extends BasicTestSet {
             isLuckButtonDisplayed();
 
             // Check that the search field is displayed
-            isFieldSearchDisplayed();
+            isSearchFieldDisplayed();
 
             // Do this search 'Hello world!'
             googleMainPage.doSearch("Hello world");
@@ -95,7 +96,8 @@ public class GoogleTestSet extends BasicTestSet {
             // Steps to clear the stage (Post steps)
         }
 
-        log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - End test method: " + method.getName());
     }
 
     /**
@@ -120,7 +122,8 @@ public class GoogleTestSet extends BasicTestSet {
      */
     @Test(description = "googleDoSearchAndAccessToPage")
     public void googleDoSearchAndAccessToPage(Method method) {
-        log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
         isReady(googleMainPage = new GoogleMainPage(driver));
@@ -143,17 +146,20 @@ public class GoogleTestSet extends BasicTestSet {
 
             // Access to the 'Contacto' page
 
-            // Check that the address is displayed
+            // Check that Sevilla address is displayed
 
-            // Access to the 'Trabaja con nosotros' page
+            // Click on top right slide menu
 
-            // Check '¿QUÉ OFRECEMOS?' section is displayed
+            // Access to 'Trabaja con nosotros' page
+
+            // Check 'Ofertas de trabajo' title
 
         } finally {
             // Steps to clear the stage (Post steps)
         }
 
-        log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - End test method: " + method.getName());
     }
 
     // ************************ Methods *************************
@@ -184,7 +190,9 @@ public class GoogleTestSet extends BasicTestSet {
      * This assertion check if the search return several results
      */
     public void areSeveralResults() {
-        assertTrue("There aren't several results, it should have several results", this.checkSeveralResults());
+        assertTrue(
+                "There aren't several results, it should have several results",
+                this.checkSeveralResults());
     }
 
     /**
@@ -194,7 +202,8 @@ public class GoogleTestSet extends BasicTestSet {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The logo isn't displayed, it should be displayed", googleMainPage.isElementVisibleById("imgLogo"));
+        assertTrue("The logo isn't displayed, it should be displayed",
+                googleMainPage.isLogoDisplayed());
     }
 
     /**
@@ -206,8 +215,8 @@ public class GoogleTestSet extends BasicTestSet {
         }
 
         /* Check by Name */
-        assertTrue("The search button isn't displayed, it should be displayed", googleMainPage
-                .isElementVisibleByName("searchButton"));
+        assertTrue("The search button isn't displayed, it should be displayed",
+                googleMainPage.isSearchButtonDisplayed());
     }
 
     /**
@@ -217,19 +226,19 @@ public class GoogleTestSet extends BasicTestSet {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The luck button isn't displayed, it should be displayed", googleMainPage
-                .isElementVisibleByXPath("luckButton"));
+        assertTrue("The luck button isn't displayed, it should be displayed",
+                googleMainPage.isLuckButtonDisplayed());
     }
 
     /**
      * This assertion check if search field is displayed
      */
-    public void isFieldSearchDisplayed() {
+    public void isSearchFieldDisplayed() {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The search field isn't displayed, it should be displayed", googleMainPage
-                .isElementVisibleByXPath("searchField"));
+        assertTrue("The search field isn't displayed, it should be displayed",
+                googleMainPage.isSearchFieldDisplayed());
     }
 
     /**
@@ -239,7 +248,7 @@ public class GoogleTestSet extends BasicTestSet {
         if (emergyaMainPage == null) {
             emergyaMainPage = new EmergyaMainPage(driver);
         }
-        assertTrue("The logo isn't displayed, it should be displayed", emergyaMainPage
-                .isElementVisibleByXPath("imgLogoEmergya"));
+        assertTrue("The logo isn't displayed, it should be displayed",
+                emergyaMainPage.isEmergyaLogoDisplayed());
     }
 }

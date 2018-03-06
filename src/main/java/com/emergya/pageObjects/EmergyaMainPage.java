@@ -38,14 +38,28 @@ public class EmergyaMainPage extends BasePageObject {
      */
     @Override
     public boolean isReady() {
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+                + " - Start isReady method");
 
-        boolean status = this.isElementVisibleByXPath(IMG_LOGO_EMERGYA);
+        boolean status = this.isElementVisibleById(IMG_LOGO_EMERGYA);
 
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+                + " - End isReady method");
 
         return status;
     }
 
     // Page object methods
+    /**
+     * Check if emergya logo is displayed
+     * @return
+     */
+    public boolean isEmergyaLogoDisplayed() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start isEmergyaLogoDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isEmergyaLogoDisplayed method");
+
+        return this.isElementVisibleById(IMG_LOGO_EMERGYA);
+    }
 }
