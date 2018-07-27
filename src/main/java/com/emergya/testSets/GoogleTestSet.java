@@ -66,7 +66,8 @@ public class GoogleTestSet extends BasicTestSet {
      */
     @Test(description = "googleMainPageSearch")
     public void googleMainPageSearch(Method method) {
-        log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
         isReady(googleMainPage = new GoogleMainPage(driver));
@@ -97,7 +98,8 @@ public class GoogleTestSet extends BasicTestSet {
             // Steps to clear the stage (Post steps)
         }
 
-        log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - End test method: " + method.getName());
     }
 
     /**
@@ -122,7 +124,8 @@ public class GoogleTestSet extends BasicTestSet {
      */
     @Test(description = "googleDoSearchAndAccessToPage")
     public void googleDoSearchAndAccessToPage(Method method) {
-        log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - Start test method: " + method.getName());
 
         // Variable declaration and definition
         isReady(googleMainPage = new GoogleMainPage(driver));
@@ -157,7 +160,8 @@ public class GoogleTestSet extends BasicTestSet {
             // Steps to clear the stage (Post steps)
         }
 
-        log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - End test method: " + method.getName());
     }
 
     // ************************ Methods *************************
@@ -188,7 +192,9 @@ public class GoogleTestSet extends BasicTestSet {
      * This assertion check if the search return several results
      */
     public void areSeveralResults() {
-        assertTrue("There aren't several results, it should have several results", this.checkSeveralResults());
+        assertTrue(
+                "There aren't several results, it should have several results",
+                this.checkSeveralResults());
     }
 
     /**
@@ -198,7 +204,8 @@ public class GoogleTestSet extends BasicTestSet {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The logo isn't displayed, it should be displayed", googleMainPage.isLogoDisplayed());
+        assertTrue("The logo isn't displayed, it should be displayed",
+                googleMainPage.isLogoDisplayed());
     }
 
     /**
@@ -221,7 +228,8 @@ public class GoogleTestSet extends BasicTestSet {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The luck button isn't displayed, it should be displayed", googleMainPage.isLuckButtonDisplayed());
+        assertTrue("The luck button isn't displayed, it should be displayed",
+                googleMainPage.isLuckButtonDisplayed());
     }
 
     /**
@@ -231,7 +239,8 @@ public class GoogleTestSet extends BasicTestSet {
         if (googleMainPage == null) {
             googleMainPage = new GoogleMainPage(driver);
         }
-        assertTrue("The search field isn't displayed, it should be displayed", googleMainPage.isSearchFieldDisplayed());
+        assertTrue("The search field isn't displayed, it should be displayed",
+                googleMainPage.isSearchFieldDisplayed());
     }
 
     /**
@@ -241,6 +250,7 @@ public class GoogleTestSet extends BasicTestSet {
         if (emergyaMainPage == null) {
             emergyaMainPage = new EmergyaMainPage(driver);
         }
-        assertTrue("The logo isn't displayed, it should be displayed", emergyaMainPage.isEmergyaLogoDisplayed());
+        assertTrue("The logo isn't displayed, it should be displayed",
+                emergyaMainPage.isEmergyaLogoDisplayed());
     }
 }
