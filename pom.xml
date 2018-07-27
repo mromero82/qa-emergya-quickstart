@@ -11,7 +11,7 @@
 
 	<properties>
 		<!-- Parameters for test executions -->
-		<browser>Chrome</browser>
+		<browser>Firefox</browser>
 		<local.OS>Ubuntu</local.OS>
 		<video.Recording.Path>target/surefire-reports/testCasesVideos</video.Recording.Path>
 		<activate.Video.Recording>true</activate.Video.Recording>
