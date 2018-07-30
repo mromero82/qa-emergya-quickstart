@@ -11,4 +11,5 @@ import com.emergya.selenium.testSet.DefaultTestSet;
 public abstract class BasicTestSet extends DefaultTestSet {
     protected GoogleMainPage googleMainPage;
     protected EmergyaMainPage emergyaMainPage;
+
 }

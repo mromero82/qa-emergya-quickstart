@@ -30,11 +30,13 @@ public class GoogleTestSet extends BasicTestSet {
         super();
     }
 
+    @Override
     @BeforeMethod(description = "startTest")
     public void before() {
         super.before();
     }
 
+    @Override
     @AfterMethod(description = "endTest")
     public void afterAllIsSaidAndDone() {
         super.afterAllIsSaidAndDone();
@@ -45,10 +47,10 @@ public class GoogleTestSet extends BasicTestSet {
     // ------ US00001 - Check google main page and do a search ------ //
     /**
      * Description: Check the main page elements and do a search on google
-     * 
+     *
      * Pre steps:
      * - Open the browser
-     * 
+     *
      * Steps:
      * - Go to www.google.es
      * - Check that the google logo is displayed
@@ -57,10 +59,10 @@ public class GoogleTestSet extends BasicTestSet {
      * - Check that the search field is displayed
      * - Do this search 'Hello world!'
      * - Check that several results are displayed
-     * 
+     *
      * Post steps:
      * - Close the browser
-     * 
+     *
      */
     @Test(description = "googleMainPageSearch")
     public void googleMainPageSearch(Method method) {
@@ -102,10 +104,10 @@ public class GoogleTestSet extends BasicTestSet {
 
     /**
      * Description: Do a search in Google and access to a page
-     * 
+     *
      * Pre steps:
      * - Open the browser
-     * 
+     *
      * Steps:
      * - Go to www.google.es
      * - Do this search 'www.emergya.es'
@@ -115,10 +117,10 @@ public class GoogleTestSet extends BasicTestSet {
      * - Check that the address is displayed
      * - Access to the 'Trabaja con nosotros' page
      * - Check '¿QUÉ OFRECEMOS?' section is displayed
-     * 
+     *
      * Post steps:
      * - Close the browser
-     * 
+     *
      */
     @Test(description = "googleDoSearchAndAccessToPage")
     public void googleDoSearchAndAccessToPage(Method method) {
