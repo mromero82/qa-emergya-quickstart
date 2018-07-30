@@ -20,8 +20,8 @@ The aim of this project is to provide a maven archetype for selenium projets usi
 ```
         <dependency>
                 <groupId>com.emergya</groupId>
-                <artifactId>selenium-handler</artifactId>
-                <version>0.1.10</version>
+                <artifactId>selenium3-handler</artifactId>
+                <version>0.0.7</version>
         </dependency>
 ```
 
@@ -47,7 +47,7 @@ Important parameters to execute tests:
 5. _save.Video.For.Passed_: Save videos for passed tests. Allowed values: true or false.
 6. _webdriver.chrome.driver_: Path in which the Chrome driver is.
 7. _webdriver.ie.driver_: Path in which the IE driver is.
-
+8. _webdriver.firefox.driver_: Path in which the Firefox (geckodriver) driver is.
 
 ## src/main/resources folder:
 1. files/software: In this folder we store the browser drivers.
