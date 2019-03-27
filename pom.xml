@@ -16,24 +16,25 @@
 		<video.Recording.Path>target/surefire-reports/testCasesVideos</video.Recording.Path>
 		<activate.Video.Recording>true</activate.Video.Recording>
 		<save.Video.For.Passed>false</save.Video.For.Passed>
-		<webdriver.chrome.driver>files/software/chromedriver</webdriver.chrome.driver>
-		<webdriver.ie.driver>files/software/IEDriverServer.exe</webdriver.ie.driver>
+		<webdriver.chrome.driver>src/main/resources/files/software/chromedriver</webdriver.chrome.driver>
+		<webdriver.ie.driver>src/main/resources/files/software/IEDriverServer.exe</webdriver.ie.driver>
+		<webdriver.firefox.driver>src/main/resources/files/software/geckodriver</webdriver.firefox.driver>
 
 		<!-- Versions section -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<selenium.version>2.53.1</selenium.version>
+		<selenium.version>3.13.0</selenium.version>
 		<java.version>1.8</java.version>
-		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-		<testng.version>6.9.10</testng.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<testng.version>6.14.2</testng.version>
 		<monte.repack.version>1.0.1</monte.repack.version>
 		<jdom.version>1.1</jdom.version>
 		<jaxen.version>1.1.6</jaxen.version>
 		<saxpath.version>1.0-FCS</saxpath.version>
 		<jaxen.jdom.version>1.0-FCS</jaxen.jdom.version>
-		<commons.version>3.0</commons.version>
+		<commons.version>3.7</commons.version>
 		<log4j.version>1.2.17</log4j.version>
-		<selenium-handler.version>0.1.10</selenium-handler.version>
+		<selenium-handler.version>0.0.7</selenium-handler.version>
 		<allure.version>1.5.0.RC2</allure.version>
 		<aspectj.version>1.8.9</aspectj.version>
 
@@ -176,10 +177,9 @@
 		</dependency>
 		<dependency>
 			<groupId>com.emergya</groupId>
-			<artifactId>selenium-handler</artifactId>
+			<artifactId>selenium3-handler</artifactId>
 			<version>${selenium-handler.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -246,6 +246,12 @@
 					<artifactId>jms</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+  			<!-- jsoup HTML parser library @ https://jsoup.org/ -->
+  			<groupId>org.jsoup</groupId>
+  			<artifactId>jsoup</artifactId>
+  			<version>1.11.3</version>
 		</dependency>
 	</dependencies>
 
