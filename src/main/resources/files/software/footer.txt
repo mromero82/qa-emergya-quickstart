@@ -1,0 +1,62 @@
+<footer class="site-footer"> 
+ <div class="site-footer__row-one"> 
+  <div class="container addresses"> 
+   <div class="address"> 
+    <div class="address__icon"> 
+     <img src="/static/images/spain-monument.svg"> 
+    </div> 
+    <div class="address__info"> 
+     <div class="address__country"> 
+      <a class="address__country-name" href="https://goo.gl/maps/Q7MoXr8vErj" title="Seville Spain Office" target="_blank">Spain</a> 
+      <div class="address__map"> 
+       <i class="address__map-icon icon-marker"></i> 
+       <a class="address__map-link" href="https://goo.gl/maps/Q7MoXr8vErj" title="Seville Spain Office">View map</a> 
+      </div> 
+     </div> 
+     <address class="address__place"> <a href="https://goo.gl/maps/Q7MoXr8vErj" title="Seville Spain Office" target="_blank"> Avenida Luis de Morales, 32<br> Edificio Forum, 41018 Sevilla<br> </a> <a class="address__phone" href="tel:0034954517577">0034 954 51 75 77</a> </address> 
+    </div> 
+   </div> 
+   <div class="address"> 
+    <div class="address__icon"> 
+     <img src="/static/images/uk-monument.svg"> 
+    </div> 
+    <div class="address__info"> 
+     <div class="address__country"> 
+      <a class="address__country-name" href="https://goo.gl/maps/dzcwivt9SBD2" title="London UK Office" target="_blank">United Kingdom</a> 
+      <div class="address__map"> 
+       <i class="address__map-icon icon-marker"></i> 
+       <a class="address__map-link" href="https://goo.gl/maps/dzcwivt9SBD2" title="London UK Office">View map</a> 
+      </div> 
+     </div> 
+     <address class="address__place"> <a href="https://goo.gl/maps/dzcwivt9SBD2" title="London UK Office" target="_blank"> 15a Norfolk Place<br> London (UK) W2 1QJ<br> </a> <a class="address__phone" href="tel:00447482894594">0044 7482 894594</a> </address> 
+    </div> 
+   </div> 
+   <div class="address"> 
+    <div class="address__icon"> 
+     <img src="/static/images/switzerland-monument.svg"> 
+    </div> 
+    <div class="address__info"> 
+     <div class="address__country"> 
+      <a class="address__country-name" href="https://goo.gl/maps/dXyUMyWD74C2" title="Zürich Switzerland Office" target="_blank">Switzerland</a> 
+      <div class="address__map"> 
+       <i class="address__map-icon icon-marker"></i> 
+       <a class="address__map-link" href="https://goo.gl/maps/dXyUMyWD74C2" title="Zürich Switzerland Office">View map</a> 
+      </div> 
+     </div> 
+     <address class="address__place"> <a href="https://goo.gl/maps/dXyUMyWD74C2" title="Zürich Switzerland Office" target="_blank"> Hagenholzstrasse 83b, 8050 Zürich<br> (Switzerland)<br> </a> <a class="address__phone" href="tel:0041792905297">0041 792 905 297</a> </address> 
+    </div> 
+   </div> 
+  </div> 
+ </div> 
+ <div class="site-footer__row-two"> 
+  <div class="container"> 
+   <nav class="secondary-menu"> 
+    <ul> 
+     <li class="menu-item "> <a href="/en/cookies-policy/" title="Cookies policy">Cookies policy</a> </li> 
+     <li class="menu-item "> <a href="/en/contact/" title="Contact us">Contact</a> </li> 
+    </ul> 
+   </nav> 
+   <small class="copyright">©Emergya 2019</small> 
+  </div> 
+ </div> 
+</footer>

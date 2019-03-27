@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This test suite contains all the acceptance tests -->
+<suite name="EmergyaAcceptanceTest" enabled="true" configfailurepolicy="continue">
+	<test name="GoogleTest" order-by-instances="true">
+		<classes>
+			<class name="com.emergya.testSets.ContactTestSet" >
+				<methods>
+                    <include name="checkFooterHasNotBeenUpdated" />
+                    <include name="checkHeaderHasNotBeenUpdated" />
+                    <include name="backandForthSectionContact" />
+                    <include name="googleDoSearchAndAccessToPage" />
+                    <include name="contactSectionNoPrivacyCheck" />
+                    <include name="contactSectionWrongMailFormat" />
+                    <include name="formAboutWithProblematicCharacters" />
+                    <include name="contactSectionFormWithNoAboutProject" />
+                    <include name="contactSectionFormWithoutEmail" />
+                    <include name="contactSectionMailWithEmojis" />
+                </methods>
+            </class>
+		</classes>
+	</test>
+</suite>
