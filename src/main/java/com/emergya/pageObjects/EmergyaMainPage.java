@@ -1,6 +1,10 @@
 package com.emergya.pageObjects;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.emergya.selenium.drivers.EmergyaWebDriver;
 import com.emergya.selenium.pageObject.BasePageObject;
@@ -23,6 +27,7 @@ public class EmergyaMainPage extends BasePageObject {
      * Items keys selectors.
      */
     private static final String IMG_LOGO_EMERGYA = "imgLogoEmergya";
+    private static final String WORK_WITH_US = "buttonWorkWithUs";
 
     /**
      * Constructor method
@@ -62,4 +67,33 @@ public class EmergyaMainPage extends BasePageObject {
 
         return this.isElementVisibleById(IMG_LOGO_EMERGYA);
     }
+
+	public EmergyaContactPage clickOnEmergyaContactPage() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnPage method");
+        String xPathButton = "//nav[@id='block-da-vinci-main-menu']//a[contains(@href,'contacto')]";
+
+        driver.clickIfExists(By.xpath(xPathButton));
+
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End clickOnPage method");
+        return new EmergyaContactPage(driver);
+    }
+
+	public EmergyaWorkPage clickOnWorkWithUs() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnPage method");
+        
+        this.scrollBottom();
+        
+        this.waitForByXPath(WORK_WITH_US);
+
+        this.getElementByXPath(WORK_WITH_US).click();
+        
+        
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End clickOnPage method");
+        return new EmergyaWorkPage(driver);
+	}
+	
 }

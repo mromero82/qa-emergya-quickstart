@@ -8,11 +8,15 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.emergya.pageObjects.EmergyaMainPage;
+import com.emergya.pageObjects.EmergyaWorkPage;
+import com.emergya.pageObjects.EmergyaContactPage;
 import com.emergya.pageObjects.GoogleMainPage;
 import com.emergya.utils.BasicTestSet;
 
@@ -30,11 +34,13 @@ public class GoogleTestSet extends BasicTestSet {
         super();
     }
 
+    @Override
     @BeforeMethod(description = "startTest")
     public void before() {
         super.before();
     }
 
+    @Override
     @AfterMethod(description = "endTest")
     public void afterAllIsSaidAndDone() {
         super.afterAllIsSaidAndDone();
@@ -45,10 +51,10 @@ public class GoogleTestSet extends BasicTestSet {
     // ------ US00001 - Check google main page and do a search ------ //
     /**
      * Description: Check the main page elements and do a search on google
-     * 
+     *
      * Pre steps:
      * - Open the browser
-     * 
+     *
      * Steps:
      * - Go to www.google.es
      * - Check that the google logo is displayed
@@ -57,10 +63,10 @@ public class GoogleTestSet extends BasicTestSet {
      * - Check that the search field is displayed
      * - Do this search 'Hello world!'
      * - Check that several results are displayed
-     * 
+     *
      * Post steps:
      * - Close the browser
-     * 
+     *
      */
     @Test(description = "googleMainPageSearch")
     public void googleMainPageSearch(Method method) {
@@ -102,10 +108,10 @@ public class GoogleTestSet extends BasicTestSet {
 
     /**
      * Description: Do a search in Google and access to a page
-     * 
+     *
      * Pre steps:
      * - Open the browser
-     * 
+     *
      * Steps:
      * - Go to www.google.es
      * - Do this search 'www.emergya.es'
@@ -115,10 +121,10 @@ public class GoogleTestSet extends BasicTestSet {
      * - Check that the address is displayed
      * - Access to the 'Trabaja con nosotros' page
      * - Check '¿QUÉ OFRECEMOS?' section is displayed
-     * 
+     *
      * Post steps:
      * - Close the browser
-     * 
+     *
      */
     @Test(description = "googleDoSearchAndAccessToPage")
     public void googleDoSearchAndAccessToPage(Method method) {
@@ -142,17 +148,51 @@ public class GoogleTestSet extends BasicTestSet {
             isEmergyaLogoDisplayed();
 
             // TODO: Remove the following line when you complete the test
-            assertTrue("Developing test", false);
+            //assertTrue("Developing test", false);
 
             // Access to the 'Contacto' page
+            
+            emergyaContactPage = emergyaMainPage.clickOnEmergyaContactPage();
 
             // Check that Sevilla address is displayed
+            
+            isAddressSevillaDisplayed();
 
-            // Click on top right slide menu
+        } finally {
+        	
+            // Steps to clear the stage (Post steps)
+        }
+
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - End test method: " + method.getName());
+    }
+    
+    @Test
+    public void googleDoSearchAndCheckWorkWithUs(Method method) {
+        log.info("[log-TestSet] " + this.getClass().getName()
+                + " - Start test method: " + method.getName());
+
+        // Variable declaration and definition
+        isReady(googleMainPage = new GoogleMainPage(driver));
+
+        // Steps to build the stage (Pre steps)
+
+        try {
+            // Go to www.google.es
+            // Do this search 'www.emergya.es'
+            googleMainPage.doSearch("www.emergya.es");
+
+            // Access to 'www.emergya.es'
+            emergyaMainPage = googleMainPage.clickOnEmergyaPage();
 
             // Access to 'Trabaja con nosotros' page
+            
+            emergyaWorkPage = emergyaMainPage.clickOnWorkWithUs();
 
             // Check 'Ofertas de trabajo' title
+            
+            checkTitle();
+            
 
         } finally {
             // Steps to clear the stage (Post steps)
@@ -162,7 +202,7 @@ public class GoogleTestSet extends BasicTestSet {
                 + " - End test method: " + method.getName());
     }
 
-    // ************************ Methods *************************
+	// ************************ Methods *************************
     /**
      * Checks if the search return several results
      * @return true if there are several results and false in the opposite case
@@ -171,9 +211,12 @@ public class GoogleTestSet extends BasicTestSet {
         String resultClassName = "r";
         List<WebElement> elements = null;
         boolean isSeveral = false;
+        
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("fbar")));
 
         driver.wait(By.className(resultClassName), 20);
-
+	
         if (driver.isElementDisplayed(By.className(resultClassName))) {
             elements = driver.findElements(By.className(resultClassName));
 
@@ -251,4 +294,25 @@ public class GoogleTestSet extends BasicTestSet {
         assertTrue("The logo isn't displayed, it should be displayed",
                 emergyaMainPage.isEmergyaLogoDisplayed());
     }
+    
+    public void isAddressSevillaDisplayed() {
+        if (emergyaContactPage== null) {
+            emergyaContactPage = new EmergyaContactPage(driver);
+        }
+        
+        emergyaContactPage.clickOnAddressSevilla();
+        
+        assertTrue("The address isn't displayed, it should be displayed",
+                emergyaContactPage.isAddressSevillaDisplayed());
+    }
+    
+    public void checkTitle() {
+    	if (emergyaWorkPage== null) {
+            emergyaWorkPage = new EmergyaWorkPage(driver);
+        }
+    	
+    	String text = "Ofertas de trabajo";
+        
+        assertTrue(emergyaWorkPage.checkTitle().equals(text));		
+	}
 }
