@@ -1,10 +1,6 @@
 package com.emergya.pageObjects;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.emergya.selenium.drivers.EmergyaWebDriver;
 import com.emergya.selenium.pageObject.BasePageObject;
@@ -28,6 +24,7 @@ public class EmergyaMainPage extends BasePageObject {
      */
     private static final String IMG_LOGO_EMERGYA = "imgLogoEmergya";
     private static final String WORK_WITH_US = "buttonWorkWithUs";
+    private static final String CONTACT_PAGE = "buttonContactPage";
 
     /**
      * Constructor method
@@ -68,32 +65,40 @@ public class EmergyaMainPage extends BasePageObject {
         return this.isElementVisibleById(IMG_LOGO_EMERGYA);
     }
 
-	public EmergyaContactPage clickOnEmergyaContactPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start clickOnPage method");
-        String xPathButton = "//nav[@id='block-da-vinci-main-menu']//a[contains(@href,'contacto')]";
+    /**
+     * Do it click on the button contact
+     * for redirect to contact page
+     * @return
+     */
+    public EmergyaContactPage clickOnEmergyaContactPage() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnEmergyaContactPage method");
 
-        driver.clickIfExists(By.xpath(xPathButton));
+        this.getElementByXPath(CONTACT_PAGE).click();
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- End clickOnPage method");
+                + "]- End clickOnEmergyaContactPage method");
         return new EmergyaContactPage(driver);
     }
 
-	public EmergyaWorkPage clickOnWorkWithUs() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start clickOnPage method");
-        
+    /**
+     * Do it click on the button work with us
+     * for redirect to the page
+     * @return
+     */
+    public EmergyaWorkPage clickOnWorkWithUs() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnWorkWithUs method");
+
         this.scrollBottom();
-        
+
         this.waitForByXPath(WORK_WITH_US);
 
         this.getElementByXPath(WORK_WITH_US).click();
-        
-        
+
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- End clickOnPage method");
+                + "]- End clickOnWorkWithUs method");
         return new EmergyaWorkPage(driver);
-	}
-	
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.emergya.pageObjects;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
@@ -22,6 +21,7 @@ public class EmergyaContactPage extends BasePageObject {
     private static final String DIRECCION = "direccion";
     private static final String TITLE_CONTACT = "title_contact";
     private static final String SECTION_SPAIN = "sectionSpain";
+
     /**
      * Constructor method
      * @param driver selenium webdriver
@@ -49,37 +49,49 @@ public class EmergyaContactPage extends BasePageObject {
 
     // Page object methods
 
-	public boolean isAddressSevillaDisplayed() {
-			
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start isEmergyaLogoDisplayed method");
+    /**
+     * Check if its visible the address
+     * of Sevilla
+     * @return
+     */
+    public boolean isAddressSevillaDisplayed() {
+
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- End isEmergyaLogoDisplayed method");
+                + "]- Start isAddressSevillaDisplayed method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End isAddressSevillaDisplayed method");
 
-		return this.isElementVisibleByXPath(DIRECCION);
-		
-	}
+        return this.isElementVisibleByXPath(DIRECCION);
 
-	public void clickOnAddressSevilla() {
+    }
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start isEmergyaLogoDisplayed method");
-		
+    /**
+     * Do it click on the url of Sevilla
+     * @return
+     */
+    public void clickOnAddressSevilla() {
+
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start clickOnAddressSevilla method");
+
         WebElement field = this.getElementByXPath(LINK_SEVILLA);
-        
+
         WebElement sectionSpain = this.getElementByXPath(SECTION_SPAIN);
-        
+
         JavascriptExecutor executor = (JavascriptExecutor) driver;
-        
-        executor.executeScript("arguments[0].setAttribute('target','_self');",field);
-        
+
+        executor.executeScript("arguments[0].setAttribute('target','_self');",
+                field);
+
         this.scrollTo(sectionSpain);
 
         field.click();
-        
+
         this.waitForByXPath(DIRECCION);
-		
-	}
-    
-    
+
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End clickOnAddressSevilla method");
+
+    }
+
 }

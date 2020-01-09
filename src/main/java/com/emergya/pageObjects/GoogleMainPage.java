@@ -1,10 +1,7 @@
 package com.emergya.pageObjects;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.emergya.selenium.drivers.EmergyaWebDriver;
 import com.emergya.selenium.pageObject.BasePageObject;
@@ -30,6 +27,7 @@ public class GoogleMainPage extends BasePageObject {
     private static final String SEARCH_BUTTON = "searchButton";
     private static final String LUCK_BUTTON = "luckButton";
     private static final String IMG_LOGO = "imgLogo";
+    private static final String EMERGYA_PAGE = "urlEmergyaPage";
 
     /**
      * Constructor method
@@ -69,11 +67,12 @@ public class GoogleMainPage extends BasePageObject {
         if (this.isElementVisibleByXPath(SEARCH_FIELD)) {
             this.getElementByXPath(SEARCH_FIELD).sendKeys(stringSearch);
             this.getElementByXPath(SEARCH_FIELD).sendKeys(Keys.ENTER);
-            
 
-            /*if (this.isElementVisibleByXPath(NEW_SEARCH_BUTTON)) {
-                this.getElementByXPath(NEW_SEARCH_BUTTON).click();
-            }*/
+            // Es otra forma de realizar este metodo
+            // if (this.isElementVisibleByXPath(NEW_SEARCH_BUTTON)) {
+            // this.getElementByXPath(NEW_SEARCH_BUTTON).click();
+            // }
+
         }
 
         log.info(
@@ -87,13 +86,12 @@ public class GoogleMainPage extends BasePageObject {
      */
     public EmergyaMainPage clickOnEmergyaPage() {
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- Start clickOnPage method");
-        String xpathLink = "//div[@class='r']/a[contains(@href,'emergya.es')]";
+                + "]- Start clickOnEmergyaPage method");
 
-        driver.clickIfExists(By.xpath(xpathLink));
+        this.getElementByXPath(EMERGYA_PAGE).click();
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
-                + "]- End clickOnPage method");
+                + "]- End clickOnEmergyaPage method");
         return new EmergyaMainPage(driver);
     }
 
