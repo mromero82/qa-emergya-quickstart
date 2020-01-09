@@ -76,22 +76,34 @@ public class EmergyaContactPage extends BasePageObject {
 
         WebElement field = this.getElementByXPath(LINK_SEVILLA);
 
-        WebElement sectionSpain = this.getElementByXPath(SECTION_SPAIN);
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].setAttribute('target','_self');", field);
 
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        this.scrollTo(this.getElementByXPath(SECTION_SPAIN));
 
-        executor.executeScript("arguments[0].setAttribute('target','_self');",
-                field);
-
-        this.scrollTo(sectionSpain);
-
-        field.click();
+        if (sevillaAddressLinkIsVisible()) {
+            field.click();
+        }
 
         this.waitForByXPath(DIRECCION);
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- End clickOnAddressSevilla method");
 
+    }
+
+    /**
+     * Return if the sevilla address link
+     * is visible
+     * @return
+     */
+    public boolean sevillaAddressLinkIsVisible() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start sevillaAddressLinkIsVisible method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End sevillaAddressLinkIsVisible method");
+
+        return this.isElementVisibleByXPath(LINK_SEVILLA);
     }
 
 }

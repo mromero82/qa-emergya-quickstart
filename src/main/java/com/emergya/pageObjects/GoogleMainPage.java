@@ -64,15 +64,9 @@ public class GoogleMainPage extends BasePageObject {
                 + "]- Start doSearch -[" + this.getClass().getSimpleName()
                 + "- method]");
 
-        if (this.isElementVisibleByXPath(SEARCH_FIELD)) {
+        if (isSearchFieldDisplayed()) {
             this.getElementByXPath(SEARCH_FIELD).sendKeys(stringSearch);
             this.getElementByXPath(SEARCH_FIELD).sendKeys(Keys.ENTER);
-
-            // Es otra forma de realizar este metodo
-            // if (this.isElementVisibleByXPath(NEW_SEARCH_BUTTON)) {
-            // this.getElementByXPath(NEW_SEARCH_BUTTON).click();
-            // }
-
         }
 
         log.info(
@@ -88,7 +82,9 @@ public class GoogleMainPage extends BasePageObject {
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- Start clickOnEmergyaPage method");
 
-        this.getElementByXPath(EMERGYA_PAGE).click();
+        if (emergyaLinkIsVisible()) {
+            this.getElementByXPath(EMERGYA_PAGE).click();
+        }
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- End clickOnEmergyaPage method");
@@ -145,5 +141,18 @@ public class GoogleMainPage extends BasePageObject {
                 + "]- End isSearchFieldDisplayed method");
 
         return this.isElementVisibleByXPath(SEARCH_FIELD);
+    }
+
+    /**
+     * Return if emergya link is visible
+     * @return
+     */
+    public boolean emergyaLinkIsVisible() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start emergyaLinkIsVisible method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End emergyaLinkIsVisible method");
+
+        return this.isElementVisibleByXPath(EMERGYA_PAGE);
     }
 }

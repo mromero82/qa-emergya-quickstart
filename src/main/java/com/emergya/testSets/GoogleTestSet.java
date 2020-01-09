@@ -93,7 +93,7 @@ public class GoogleTestSet extends BasicTestSet {
         googleMainPage.doSearch("Hello world");
 
         // Check that several results are displayed
-        areSeveralResults();
+        areSeveralResultsDisplayed();
 
         log.info("[log-TestSet] " + this.getClass().getName()
                 + " - End test method: " + method.getName());
@@ -225,7 +225,7 @@ public class GoogleTestSet extends BasicTestSet {
     /**
      * This assertion check if the search return several results
      */
-    public void areSeveralResults() {
+    public void areSeveralResultsDisplayed() {
         assertTrue(
                 "There aren't several results, it should have several results",
                 this.checkSeveralResults());

@@ -66,15 +66,17 @@ public class EmergyaMainPage extends BasePageObject {
     }
 
     /**
-     * Do it click on the button contact
-     * for redirect to contact page
+     * Click on the button contact
+     * to redirect to contact page
      * @return
      */
     public EmergyaContactPage clickOnEmergyaContactPage() {
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- Start clickOnEmergyaContactPage method");
 
-        this.getElementByXPath(CONTACT_PAGE).click();
+        if (contactButtonIsVisible()) {
+            this.getElementByXPath(CONTACT_PAGE).click();
+        }
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- End clickOnEmergyaContactPage method");
@@ -82,8 +84,8 @@ public class EmergyaMainPage extends BasePageObject {
     }
 
     /**
-     * Do it click on the button work with us
-     * for redirect to the page
+     * Click on the button work with us
+     * to redirect to the page
      * @return
      */
     public EmergyaWorkPage clickOnWorkWithUs() {
@@ -94,11 +96,40 @@ public class EmergyaMainPage extends BasePageObject {
 
         this.waitForByXPath(WORK_WITH_US);
 
-        this.getElementByXPath(WORK_WITH_US).click();
+        if (workButtonIsVisible()) {
+            this.getElementByXPath(WORK_WITH_US).click();
+        }
 
         log.info("[log-pageObjects]" + this.getClass().getSimpleName()
                 + "]- End clickOnWorkWithUs method");
         return new EmergyaWorkPage(driver);
+    }
+
+    /**
+     * Return if the button of contact is visible
+     * @return
+     */
+    public boolean contactButtonIsVisible() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start contactButtonIsVisible method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End contactButtonIsVisible method");
+
+        return this.isElementVisibleByXPath(CONTACT_PAGE);
+    }
+
+    /**
+     * Return if the button of work with us
+     *  is visible
+     * @return
+     */
+    public boolean workButtonIsVisible() {
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- Start workButtonIsVisible method");
+        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+                + "]- End workButtonIsVisible method");
+
+        return this.isElementVisibleByXPath(WORK_WITH_US);
     }
 
 }
